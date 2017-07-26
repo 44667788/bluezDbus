@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.8)
+project(bluzDbus)
+set(DBUS_INC /home/zeke/devTool/dbus-install/include/dbus-1.0)
+set(BLUEZ_INC /home/zeke/devTool/bluez-install/include/bluetooth)
+set(LIBS_PATH /home/zeke/project/fiio_playerv6/out/product/halley2/system/usr/lib)
+include_directories(${DBUS_INC} ${BLUEZ_INC})
+set(CMAKE_C_STANDARD 99)
+set(CMAKE_C_COMPILER mipsel-linux-gcc)
+link_directories(${LIBS_PATH})
+
+set(SOURCE_FILES main.c)
+add_executable(bluzDbus ${SOURCE_FILES})
+target_link_libraries(bluzDbus dbus-1 )
